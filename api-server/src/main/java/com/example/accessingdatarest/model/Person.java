@@ -8,6 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import lombok.Data;
 
 @Entity
@@ -19,7 +23,7 @@ public class Person {
 	private long id;
 	private String name;
 	
-	@OneToOne
+	@OneToOne  
 	@JoinColumn(name="address_id")// referencedColumnName = "id"
 	private Address address;
 	

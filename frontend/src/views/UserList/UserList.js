@@ -32,13 +32,19 @@ const UserList = () => {
       createdAt: 1555016400000
     }]);
 
-  const [address, setAddress] = useState("아무주소");
-
   useEffect(() => {
-    axios.get('http://localhost:8081/people')
+    axios.get('http://localhost:8081/api/v1/data/people')
     .then(res => {
-      console.log(res.data._embedded[0][1]);
+      setUsers(res.data);
     })
+    .catch( error => {
+      console.log(error);
+      if(error.response.status >= 300){
+        
+      }
+    }
+
+    )
   } , []);
 
   return (

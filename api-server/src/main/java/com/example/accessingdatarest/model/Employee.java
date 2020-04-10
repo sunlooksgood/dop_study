@@ -7,7 +7,6 @@ import javax.persistence.Id;
 
 import lombok.Data;
 
-@Entity
 @Data
 public class Employee implements Serializable{
 	

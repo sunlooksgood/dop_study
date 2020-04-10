@@ -1,17 +1,20 @@
 package com.example.accessingdatarest.model;
 
-import org.springframework.data.repository.PagingAndSortingRepository;
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 /**
- * collectionResourceRel => HATEOAS ½ºÆåÀÇ ÀüÃ¼¸®½ºÆ® Á¶È¸ _embeddedÁß collection json path¿¡ µé¾î°¥ ¸íÄª
- * path => ¸®¼Ò½º Á¢±Ù url path
+ * collectionResourceRel => HATEOAS ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½È¸ _embeddedï¿½ï¿½ collection json pathï¿½ï¿½ ï¿½ï¿½î°¥ ï¿½ï¿½Äª
+ * path => ï¿½ï¿½ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ url path
  * 
  * @author "Jaeboo Jung"
  *
  */
 @RepositoryRestResource(collectionResourceRel = "people", path = "people")
-public interface PersonRepository extends PagingAndSortingRepository<Person, Long> {
-
+public interface PersonRepository extends CrudRepository<Person, Long> {
+    
+    public List<Person> findAllByAddressIdIsNotNull();
 
 }
